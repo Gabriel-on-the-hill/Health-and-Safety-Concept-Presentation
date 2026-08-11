@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health & Safety Practices in the Workshop | Year 8 IGCSE D&T</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #f8fafc; /* Bright clean light slate background */
+            --bg-card: #ffffff; /* Crisp white cards */
+            --bg-card-hover: #f1f5f9;
+            --accent-indigo: #4f46e5; /* Deeper indigo for light background */
+            --accent-indigo-glow: rgba(79, 70, 229, 0.3);
+            --danger-red: #e11d48; /* Deeper vibrant red */
+            --danger-glow: rgba(225, 29, 72, 0.3);
+            --warning-amber: #d97706; /* Deeper vibrant amber */
+            --warning-glow: rgba(217, 119, 6, 0.3);
+            --mandatory-blue: #0284c7; /* Deeper vibrant blue */
+            --mandatory-glow: rgba(2, 132, 199, 0.3);
+            --safe-green: #059669; /* Deeper vibrant green */
+            --safe-glow: rgba(5, 150, 105, 0.3);
+            --text-main: #0f172a; /* Dark text for contrast */
+            --text-muted: #475569;
+            --text-dim: #94a3b8;
+            --border-glass: rgba(15, 23, 42, 0.1); /* Darker subtle border for light theme */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* TOP NAVIGATION BAR */
+        header {
+            height: 64px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, var(--accent-indigo), #4f46e5);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .slide-counter {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .btn-icon {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-icon:hover {
+            background: var(--accent-indigo);
+            border-color: var(--accent-indigo);
+            box-shadow: 0 0 15px var(--accent-indigo-glow);
+        }
+
+        /* MAIN SLIDE STAGE */
+        main {
+            flex: 1;
+            margin-top: 64px;
+            margin-bottom: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            position: relative;
+        }
+
+        .slide-container {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 680px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: none;
+            flex-direction: column;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .slide-container.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SLIDE HEADER */
+        .slide-header {
+            margin-bottom: 28px;
+        }
+
+        .slide-category {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--warning-amber);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .slide-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.25;
+        }
+
+        /* CONTENT LAYOUT UTILITIES */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            flex: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(15, 23, 42, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .card.card-danger {
+            border-top: 4px solid var(--danger-red);
+        }
+
+        .card.card-warning {
+            border-top: 4px solid var(--warning-amber);
+        }
+
+        .card.card-mandatory {
+            border-top: 4px solid var(--mandatory-blue);
+        }
+
+        .card.card-safe {
+            border-top: 4px solid var(--safe-green);
+        }
+
+        .card.card-indigo {
+            border-top: 4px solid var(--accent-indigo);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title.danger { color: var(--danger-red); }
+        .card-title.warning { color: var(--warning-amber); }
+        .card-title.mandatory { color: var(--mandatory-blue); }
+        .card-title.safe { color: var(--safe-green); }
+        .card-title.indigo { color: var(--accent-indigo); }
+
+        .card-body {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            flex: 1;
+        }
+
+        .card-body strong {
+            color: var(--text-main);
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 24px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--accent-indigo);
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .bullet-list li strong {
+            color: var(--text-main);
+        }
+
+        /* SYMBOL BADGES */
+        .symbol-card {
+            background: rgba(248, 250, 252, 1);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .symbol-icon-box {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .symbol-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .symbol-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* STEP CARDS FOR PRACTICAL DEMO */
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .step-row {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 18px 24px;
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .step-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-indigo);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-hazard {
+            font-size: 0.9rem;
+            color: #fca5a5;
+            background: rgba(239, 68, 68, 0.15);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--danger-red);
+        }
+
+        .step-solution {
+            font-size: 0.9rem;
+            color: #a7f3d0;
+            background: rgba(16, 185, 129, 0.15);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--safe-green);
+        }
+
+        /* INTERACTIVE QUIZ SECTION */
+        .quiz-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            overflow-y: auto;
+            max-height: 520px;
+            padding-right: 8px;
+        }
+
+        .quiz-item {
+            background: rgba(248, 250, 252, 1);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .quiz-q-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            gap: 10px;
+        }
+
+        .quiz-q-num {
+            color: var(--accent-indigo);
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .quiz-option-label {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option-label:hover {
+            background: rgba(241, 245, 249, 1);
+            border-color: rgba(15, 23, 42, 0.2);
+            color: var(--text-main);
+        }
+
+        .quiz-option-label input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-dim);
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option-label input[type="radio"]:checked {
+            border-color: var(--accent-indigo);
+            background: var(--accent-indigo);
+            box-shadow: 0 0 10px var(--accent-indigo-glow);
+        }
+
+        .quiz-option-label input[type="radio"]:checked::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--text-main);
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+        }
+
+        .quiz-option-label.selected {
+            border-color: var(--accent-indigo);
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--text-main);
+        }
+
+        .quiz-option-label.correct {
+            border-color: var(--safe-green) !important;
+            background: rgba(16, 185, 129, 0.2) !important;
+            color: #a7f3d0 !important;
+        }
+
+        .quiz-option-label.incorrect {
+            border-color: var(--danger-red) !important;
+            background: rgba(244, 63, 94, 0.2) !important;
+            color: #fca5a5 !important;
+        }
+
+        .quiz-feedback {
+            font-size: 0.85rem;
+            padding: 10px 14px;
+            border-radius: 8px;
+            display: none;
+            line-height: 1.4;
+        }
+
+        .quiz-feedback.show-correct {
+            display: block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--safe-green);
+            color: #a7f3d0;
+        }
+
+        .quiz-feedback.show-incorrect {
+            display: block;
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid var(--danger-red);
+            color: #fca5a5;
+        }
+
+        .quiz-score-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(16, 185, 129, 0.2));
+            border: 1px solid var(--accent-indigo);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .score-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .score-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--safe-green);
+        }
+
+        .btn-submit-quiz {
+            background: linear-gradient(135deg, var(--accent-indigo), #4f46e5);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px var(--accent-indigo-glow);
+        }
+
+        .btn-submit-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-indigo-glow);
+        }
+
+        /* BOTTOM NAVIGATION CONTROL BAR */
+        footer {
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--accent-indigo);
+            border-color: var(--accent-indigo);
+            box-shadow: 0 0 15px var(--accent-indigo-glow);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .progress-bar-container {
+            flex: 1;
+            max-width: 450px;
+            height: 6px;
+            background: var(--bg-card);
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-indigo), var(--mandatory-blue));
+            transition: width 0.3s ease;
+        }
+
+        /* SIDEBAR NAV MENU OVERLAY */
+        .sidebar {
+            position: fixed;
+            top: 64px;
+            left: -320px;
+            width: 320px;
+            height: calc(100vh - 134px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(16px);
+            border-right: 1px solid var(--border-glass);
+            z-index: 90;
+            transition: left 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-item {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-item:hover, .sidebar-item.active {
+            background: var(--accent-indigo);
+            color: var(--text-main);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER BAR -->
+    <header>
+        <div class="brand-container">
+            <button class="btn-icon" id="menuToggleBtn" title="Toggle Slide Menu">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <span class="brand-badge">IGCSE D&T</span>
+            <span class="brand-title">Workshop Health & Safety Practices</span>
+        </div>
+        <div class="header-controls">
+            <span class="slide-counter" id="slideCounter">Slide 1 / 13</span>
+            <button class="btn-icon" id="fullscreenBtn" title="Toggle Fullscreen">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18-5h-3a2 2 0 00-2 2v3m0 11v3a2 2 0 01-2 2h-3m-11 0H5a2 2 0 01-2-2v-3"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDEBAR SLIDE NAVIGATION MENU -->
+    <div class="sidebar" id="sidebarMenu">
+        <div class="sidebar-title">Presentation Outline</div>
+        <ul class="sidebar-list" id="sidebarList">
+            <!-- Dynamically Populated by JS -->
+        </ul>
+    </div>
+
+    <!-- MAIN SLIDE CONTAINER STAGE -->
+    <main>
+
+        <!-- SLIDE 1: TITLE SLIDE -->
+        <div class="slide-container active" data-title="Title Slide">
+            <div class="slide-header">
+                <div class="slide-category">IGCSE DESIGN & TECHNOLOGY — YEAR 8</div>
+                <h1 class="slide-title">Health & Safety Practices in the Workshop</h1>
+            </div>
+            <div class="grid-2">
+                <div class="card card-indigo" style="justify-content: center;">
+                    <h2 class="card-title indigo" style="font-size: 1.6rem; margin-bottom: 16px;">Workshop Safety Module</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 24px;">
+                        Welcome to the Year 8 D&T Workshop Safety Module. Before you use any tools or machines in the workshop, you must understand the safety rules that keep everyone safe. This module teaches you to spot hazards, follow COSHH rules, choose the right PPE, and read safety signs.
+                    </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span style="background: rgba(99,102,241,0.2); border: 1px solid var(--accent-indigo); color: #a5b4fc; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">COSHH Regulations</span>
+                        <span style="background: rgba(245,158,11,0.2); border: 1px solid var(--warning-amber); color: #fde68a; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">ISO 7010 Symbols</span>
+                        <span style="background: rgba(56,189,248,0.2); border: 1px solid var(--mandatory-blue); color: #bae6fd; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">PPE Equipment</span>
+                        <span style="background: rgba(16,185,129,0.2); border: 1px solid var(--safe-green); color: #a7f3d0; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Consumer Safety</span>
+                    </div>
+                </div>
+                <div class="card" style="justify-content: center; align-items: center; background: rgba(255,255,255,0.9);">
+                    <svg width="220" height="220" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-indigo); filter: drop-shadow(0 0 20px var(--accent-indigo-glow));">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="m9 12 2 2 4-4" stroke="var(--safe-green)" stroke-width="2"></path>
+                    </svg>
+                    <p style="margin-top: 20px; font-weight: 700; color: var(--text-main); font-size: 1.1rem;">Safeguarding Designers & Consumers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: OBJECTIVES & RATIONALE -->
+        <div class="slide-container" data-title="Objectives & Rationale">
+            <div class="slide-header">
+                <div class="slide-category">WHAT YOU WILL LEARN</div>
+                <h1 class="slide-title">Learning Objectives & Why Safety Matters</h1>
+            </div>
+            <div class="grid-2">
+                <div class="card card-indigo">
+                    <h2 class="card-title indigo">🎯 Learning Objectives</h2>
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li><strong>List Safety Rules:</strong> Know the key safety rules and requirements in the workshop.</li>
+                        <li><strong>Discuss Safety Symbols:</strong> Identify the 4 types of workshop safety signs and the 9 COSHH hazard symbols with their meanings.</li>
+                        <li><strong>Discuss Hazards & Solutions:</strong> Explain the dangers of workshop tasks (sawing, gluing, glass cutting, drilling) and state how to stay safe.</li>
+                        <li><strong>Designer Responsibility:</strong> Understand why products must be tested and correctly labelled for consumer safety.</li>
+                    </ul>
+                    <div style="margin-top: 14px; background: rgba(99,102,241,0.15); border: 1px solid var(--accent-indigo); border-radius: 10px; padding: 12px 16px;">
+                        <p style="font-size: 0.85rem; font-weight: 700; color: var(--accent-indigo); margin-bottom: 6px;">📖 KEY VOCABULARY</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);"><strong>Hazard</strong> — anything that could cause harm &nbsp;|&nbsp; <strong>Risk</strong> — how likely harm is to happen &nbsp;|&nbsp; <strong>PPE</strong> — Personal Protective Equipment &nbsp;|&nbsp; <strong>COSHH</strong> — Control of Substances Hazardous to Health</p>
+                    </div>
+                </div>
+                <div class="card card-warning">
+                    <h2 class="card-title warning">⚠️ Why Do We Need Safety Rules?</h2>
+                    <div class="card-body">
+                        <p style="margin-bottom: 14px;"><strong>Accidents are events caused by human errors and carelessness — they don't "just happen".</strong></p>
+                        <p style="margin-bottom: 14px;">To avoid them, a set of regulations was introduced, first in 1988, called <strong>COSHH</strong> (Control of Substances Hazardous to Health). Workshops contain fast-spinning tools, sharp blades, toxic glues, and fragile glass — all of which can cause serious injury.</p>
+                        <p>Following the workshop rules protects you, your classmates, your teacher, and even the cleaning staff.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: THE FIVE GOLDEN RULES -->
+        <div class="slide-container" data-title="Five Golden Rules">
+            <div class="slide-header">
+                <div class="slide-category">WORKSHOP DISCIPLINE</div>
+                <h1 class="slide-title">The Five Golden Rules of Workshop Safety</h1>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px; flex: 1;">
+                <div class="card card-danger" style="padding: 16px 24px;">
+                    <h3 class="card-title danger" style="font-size: 1.1rem; margin-bottom: 4px;">1. Do NOT Run in the Workshop</h3>
+                    <p class="card-body" style="font-size: 0.9rem;">NEVER run or engage in horseplay. Tripping near sharp chisels, saws, or powered machinery causes severe impact lacerations and bone fractures.</p>
+                </div>
+                <div class="card card-mandatory" style="padding: 16px 24px;">
+                    <h3 class="card-title mandatory" style="font-size: 1.1rem; margin-bottom: 4px;">2. Wear Appropriate Personal Protective Equipment (PPE)</h3>
+                    <p class="card-body" style="font-size: 0.9rem;">Always equip suitable PPE (goggles, lab coats, nose masks, earmuffs, gloves) matched precisely to the machinery or chemical operation.</p>
+                </div>
+                <div class="card card-safe" style="padding: 16px 24px;">
+                    <h3 class="card-title safe" style="font-size: 1.1rem; margin-bottom: 4px;">3. Tidy Away & Clean Up All Resources After Use</h3>
+                    <p class="card-body" style="font-size: 0.9rem;">Clean up sawdust, remove wood/glass offcuts, and return tools to storage racks so the workspace remains free from slip and trip hazards.</p>
+                </div>
+                <div class="card card-warning" style="padding: 16px 24px;">
+                    <h3 class="card-title warning" style="font-size: 1.1rem; margin-bottom: 4px;">4. Know Emergency Equipment & Exit Locations</h3>
+                    <p class="card-body" style="font-size: 0.9rem;">Locate first aid kits, emergency stop buttons (E-Stops), eye-wash stations, and emergency fire exits so you can act immediately in an emergency.</p>
+                </div>
+                <div class="card card-indigo" style="padding: 16px 24px;">
+                    <h3 class="card-title indigo" style="font-size: 1.1rem; margin-bottom: 4px;">5. Ask Your Teacher for Guidance Whenever Unsure</h3>
+                    <p class="card-body" style="font-size: 0.9rem;">If you are uncertain about setting up a machine, cutting glass, or using adhesives, ALWAYS ask your teacher or technician before proceeding.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: COSHH REGULATIONS -->
+        <div class="slide-container" data-title="COSHH Regulations">
+            <div class="slide-header">
+                <div class="slide-category">UNDERSTANDING COSHH</div>
+                <h1 class="slide-title">COSHH — Control of Substances Hazardous to Health</h1>
+            </div>
+            <div class="grid-2">
+                <div class="card card-indigo">
+                    <h2 class="card-title indigo">🧪 What is COSHH?</h2>
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li><strong>What is it?</strong> COSHH is a set of UK regulations introduced in 1988 to protect people from dangerous substances at work and in school workshops.</li>
+                        <li><strong>In D&T:</strong> It covers substances like wood dust (especially MDF), glues and adhesives, solvent-based paints, soldering fumes, and varnishes.</li>
+                        <li><strong>Teacher's Duty:</strong> Provide ventilation (e.g. dust extractors, fume hoods), supply the correct PPE, and keep safety information available.</li>
+                        <li><strong>Your Duty:</strong> Work in well-ventilated areas, wear the PPE you are given, and report any spills or missing safety labels immediately.</li>
+                    </ul>
+                </div>
+                <div class="card card-warning">
+                    <h2 class="card-title warning">⚠️ Common Workshop Hazardous Substances</h2>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+                        <div style="background: rgba(248,250,252,1); padding: 12px; border-radius: 10px; border-left: 3px solid var(--warning-amber);">
+                            <strong style="color: var(--text-main);">Wood Fine Dust (MDF & Hardwood):</strong> Severe respiratory irritant and asthma trigger. Requires dust extraction & nose mask.
+                        </div>
+                        <div style="background: rgba(248,250,252,1); padding: 12px; border-radius: 10px; border-left: 3px solid var(--danger-red);">
+                            <strong style="color: var(--text-main);">Frame Glues & Solvents:</strong> Toxic vapors causing dizziness & skin irritation. Requires well-ventilated space & nose mask.
+                        </div>
+                        <div style="background: rgba(248,250,252,1); padding: 12px; border-radius: 10px; border-left: 3px solid var(--mandatory-blue);">
+                            <strong style="color: var(--text-main);">Glass Sanding / Filing Dust:</strong> Microscopic glass splinters causing skin and lung irritation. Requires gloves & secure clamping.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: COSHH / GHS HAZARD SYMBOLS -->
+        <div class="slide-container" data-title="COSHH Safety Symbols">
+            <div class="slide-header">
+                <div class="slide-category">COSHH SYMBOLS</div>
+                <h1 class="slide-title">The Nine COSHH Safety Symbols & Their Meanings</h1>
+            </div>
+            <div class="grid-3" style="align-content: center;">
+                <p style="grid-column: 1 / -1; font-size: 0.9rem; color: var(--warning-amber); font-weight: 600; margin-bottom: -6px;">There are nine safety symbols associated with COSHH. Workshop Safety Symbols guide everyone in handling hazardous substances. <em style="color: var(--text-dim);">(See the COSHH Symbols Worksheet for more activities)</em></p>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--danger-red)" stroke-width="2"><path d="M12 2L2 22h20L12 2z"></path><path d="M12 16v-4m0-4h.01"></path></svg>
+                    </div>
+                    <div class="symbol-name">EXPLOSIVE</div>
+                    <div class="symbol-desc">Unstable chemicals prone to blast or fire shock.</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--danger-red)" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 008 0c0-4-4-6-4-10z"></path></svg>
+                    </div>
+                    <div class="symbol-name">FLAMMABLE</div>
+                    <div class="symbol-desc">Catches fire easily (glues, solvent sprays, lacquers).</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--danger-red)" stroke-width="2"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v4m0 8v4m-8-8h4m8 0h4"></path></svg>
+                    </div>
+                    <div class="symbol-name">OXIDIZING</div>
+                    <div class="symbol-desc">Releases oxygen; intensifies chemical fires.</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--mandatory-blue)" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="5"></rect><path d="M10 7h4"></path></svg>
+                    </div>
+                    <div class="symbol-name">GAS UNDER PRESSURE</div>
+                    <div class="symbol-desc">Compressed gas cylinders (welding gas tanks).</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--danger-red)" stroke-width="2"><path d="M4 14l8-8 8 8M12 6v12"></path></svg>
+                    </div>
+                    <div class="symbol-name">CORROSIVE</div>
+                    <div class="symbol-desc">Causes severe chemical skin burns and metal damage.</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--danger-red)" stroke-width="2"><circle cx="12" cy="9" r="4"></circle><path d="M12 13v8m-4-4h8"></path></svg>
+                    </div>
+                    <div class="symbol-name">TOXIC / POISON</div>
+                    <div class="symbol-desc">Fatal or toxic if swallowed, inhaled, or absorbed.</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--warning-amber)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <div class="symbol-name">HARMFUL / IRRITANT</div>
+                    <div class="symbol-desc">Causes skin irritation, allergies, or eye injury.</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--warning-amber)" stroke-width="2"><path d="M12 4a4 4 0 014 4c0 3-4 6-4 6s-4-3-4-6a4 4 0 014-4z"></path><path d="M6 20a6 6 0 0112 0"></path></svg>
+                    </div>
+                    <div class="symbol-name">HEALTH HAZARD</div>
+                    <div class="symbol-desc">Long-term respiratory asthma or organ damage.</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon-box">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--safe-green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <div class="symbol-name">ENVIRONMENTAL</div>
+                    <div class="symbol-desc">Toxic to aquatic organisms & natural habitats.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: ISO 7010 SIGN CATEGORIES -->
+        <div class="slide-container" data-title="Workshop Safety Signs">
+            <div class="slide-header">
+                <div class="slide-category">SAFETY SIGNS IN THE WORKSHOP</div>
+                <h1 class="slide-title">Workshop Safety Sign Categories & Their Meanings</h1>
+            </div>
+            <div class="grid-4">
+                <div class="card card-danger">
+                    <h3 class="card-title danger">PROHIBITION</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--danger-red); text-transform: uppercase;">Red Circle + Slash</p>
+                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 8px 0;">MUST NOT DO</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Prohibits actions that increase risk. White background, black pictogram, red border and diagonal bar.<br><br><em>Example: "No Running", "No Food".</em></p>
+                </div>
+                <div class="card card-warning">
+                    <h3 class="card-title warning">WARNING</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--warning-amber); text-transform: uppercase;">Yellow Triangle</p>
+                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 8px 0;">DANGER / CAUTION</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Warns of specific hazards. Yellow background with black triangular border and black symbol.<br><br><em>Example: "Hot Surface", "Glass Hazard".</em></p>
+                </div>
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">MANDATORY</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); text-transform: uppercase;">Blue Circle</p>
+                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 8px 0;">MUST DO ACTION</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Mandatory safety instructions that MUST be followed before proceeding. Blue background, white icon.<br><br><em>Example: "Wear Goggles", "Wear Mask".</em></p>
+                </div>
+                <div class="card card-safe">
+                    <h3 class="card-title safe">SAFE CONDITION</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--safe-green); text-transform: uppercase;">Green Rectangle</p>
+                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 8px 0;">SAFETY / EMERGENCY</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Indicates safe escape routes, first aid, or emergency equipment. Green background, white icon.<br><br><em>Example: "First Aid Kit", "Glass Waste Barrel".</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: PPE MAPPING -->
+        <div class="slide-container" data-title="PPE Selection & Mapping">
+            <div class="slide-header">
+                <div class="slide-category">PPE — PERSONAL PROTECTIVE EQUIPMENT</div>
+                <h1 class="slide-title">PPE: What to Wear & What It Protects</h1>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--warning-amber); font-weight: 600; margin-bottom: 12px; margin-top: -16px;">📋 As part of COSHH, PPE must be provided by the employer and worn by employees to protect them. Each item protects a specific part of the body. &nbsp; <em style="color: var(--text-dim);">(See the PPE Symbol Match-Up Worksheet for more activities)</em></p>
+            <div class="grid-3">
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">Safety Goggles & Visors</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); margin-bottom: 6px;">PROTECTS: EYES & FACE</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Protects eyes from flying wood/metal chips, glass splinters, and chemical splashes.<br><br><strong>Mandatory:</strong> Drilling, sawing, glass cutting, and sanding.</p>
+                </div>
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">Earmuffs & Earplugs</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); margin-bottom: 6px;">PROTECTS: HEARING</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Protects eardrums from intense machine acoustic noise exceeding 85dB.<br><br><strong>Mandatory:</strong> Routers, circular saws, thicknessers.</p>
+                </div>
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">Nose Mask / Respirator</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); margin-bottom: 6px;">PROTECTS: RESPIRATORY SYSTEM</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Prevents inhalation of toxic MDF dust, glass filing powder, and glue vapors.<br><br><strong>Mandatory:</strong> Sanding, frame gluing, spraying.</p>
+                </div>
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">Lab Coat / Overall</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); margin-bottom: 6px;">PROTECTS: BODY & CLOTHING</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Protects skin/clothing from catching in rotating parts and chemical spills.<br><br><strong>Note:</strong> Button up; roll loose sleeves above elbows.</p>
+                </div>
+                <div class="card card-danger">
+                    <h3 class="card-title danger">Protective Hand Gloves</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--danger-red); margin-bottom: 6px;">PROTECTS: HANDS (Specific Operations)</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Protects hands when handling sharp glass offcuts, hot metals, or corrosive glues.<br><br><strong style="color: var(--danger-red);">CRITICAL RULE:</strong> DO NOT wear gloves on drill press or lathe!</p>
+                </div>
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">Steel Toe Boots / Shoes</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); margin-bottom: 6px;">PROTECTS: FEET & TOES</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Protects feet from heavy dropped timber blocks, glass sheets, or heavy tools.<br><br><strong>Mandatory:</strong> Closed solid footwear in workshop.</p>
+                </div>
+                <div class="card card-mandatory">
+                    <h3 class="card-title mandatory">Safety Helmet</h3>
+                    <p style="font-size: 0.8rem; font-weight: 700; color: var(--mandatory-blue); margin-bottom: 6px;">PROTECTS: HEAD</p>
+                    <p class="card-body" style="font-size: 0.85rem;">Protects against falling objects in heavy construction and industrial settings.<br><br><strong>Note:</strong> Less common in school D&T but required on construction sites.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: PRACTICAL PROJECT STEP-BY-STEP (WOODEN PICTURE FRAME & GLASS) -->
+        <div class="slide-container" data-title="Practical Operation Breakdown">
+            <div class="slide-header">
+                <div class="slide-category">PRACTICAL CASE STUDY</div>
+                <h1 class="slide-title">Wooden Picture Frame & Glass Cutting Operation Analysis</h1>
+            </div>
+            <div class="step-container">
+                <div class="step-row">
+                    <div class="step-num">Step 1: Cut Wood</div>
+                    <div class="step-hazard"><strong>Hazard:</strong> Hand injury while sawing timber frame joints.</div>
+                    <div class="step-solution"><strong>Solution:</strong> Clamp wood securely in a vice or against bench hook. Keep non-cutting hand behind blade path.</div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">Step 2: Glue & Clamp</div>
+                    <div class="step-hazard"><strong>Hazard:</strong> Toxic glue fumes; frame drying in walkway passage.</div>
+                    <div class="step-solution"><strong>Solution:</strong> Work in well-ventilated space. Wear nose mask. Place frame in designated out-of-the-way drying zone.</div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">Step 3: Cut Glass</div>
+                    <div class="step-hazard"><strong>Hazard:</strong> Cuts while cutting glass; unsafe glass offcut disposal.</div>
+                    <div class="step-solution"><strong>Solution:</strong> Wear cut-resistant gloves. Dispose offcuts in clearly labelled glass waste barrels for cleaner safety.</div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">Step 4: Smooth Edges</div>
+                    <div class="step-hazard"><strong>Hazard:</strong> Deep cuts while sandpapering or filing sharp raw glass.</div>
+                    <div class="step-solution"><strong>Solution:</strong> Hold or clamp glass securely using padded vice. Wear protective gloves and safety goggles.</div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">Step 5: Mount Glass</div>
+                    <div class="step-hazard"><strong>Hazard:</strong> Dropping or breaking glass sheet while lifting/fitting.</div>
+                    <div class="step-solution"><strong>Solution:</strong> Ask a classmate to help lift (Teamwork). Discuss beforehand who will do what so actions align.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: MACHINERY RISK ANALYSIS -->
+        <div class="slide-container" data-title="Machinery Risk Analysis">
+            <div class="slide-header">
+                <div class="slide-category">POWERED MACHINERY</div>
+                <h1 class="slide-title">Pillar Drill & Scroll Saw Operation Safeguards</h1>
+            </div>
+            <div class="grid-2">
+                <div class="card card-danger">
+                    <h2 class="card-title danger">⚙️ Pillar Drill (Drill Press)</h2>
+                    <div class="card-body">
+                        <p style="margin-bottom: 8px;"><strong>Hazards:</strong> High-speed rotating chuck entangling loose hair/sleeves; flying swarf; unclamped workpiece spinning violently.</p>
+                        <p style="margin-bottom: 8px;"><strong>Safeguards & Solutions:</strong></p>
+                        <ul class="bullet-list">
+                            <li>Lower clear chuck guard BEFORE switching on motor.</li>
+                            <li>Securely clamp workpiece in machine vice.</li>
+                            <li>Wear goggles; tie hair back; roll up loose sleeves.</li>
+                            <li>REMOVE chuck key before turning on power!</li>
+                            <li><strong style="color: var(--danger-red);">NEVER wear gloves on the drill press!</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card-warning">
+                    <h2 class="card-title warning">🪚 Scroll Saw / Hegner Saw</h2>
+                    <div class="card-body">
+                        <p style="margin-bottom: 8px;"><strong>Hazards:</strong> Reciprocating saw blade cutting fingers; blade snapping under stress; airborne timber dust.</p>
+                        <p style="margin-bottom: 8px;"><strong>Safeguards & Solutions:</strong></p>
+                        <ul class="bullet-list">
+                            <li>Adjust hold-down foot guard so it rests on workpiece.</li>
+                            <li>Use push stick for small timber components.</li>
+                            <li>Keep fingers clear of direct blade cutting line.</li>
+                            <li>Activate dust extraction system before cutting.</li>
+                            <li>Wear safety goggles and dust mask.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: RISK ASSESSMENT MATRIX -->
+        <div class="slide-container" data-title="Risk Assessment Framework">
+            <div class="slide-header">
+                <div class="slide-category">RISK ASSESSMENT</div>
+                <h1 class="slide-title">Workshop Risk Assessment — Hazard, Risk & Control</h1>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 20px; flex: 1;">
+                <div class="card card-indigo" style="padding: 16px 20px;">
+                    <div style="display: flex; gap: 30px;">
+                        <div><strong style="color: var(--accent-indigo);">HAZARD:</strong> Potential source of harm (e.g. sharp glass edge, toxic glue fumes, spinning drill).</div>
+                        <div><strong style="color: var(--warning-amber);">RISK:</strong> Likelihood & severity of injury from hazard exposure.</div>
+                        <div><strong style="color: var(--safe-green);">CONTROL MEASURE:</strong> Action taken to eliminate/reduce risk to safe level.</div>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="background: rgba(241,245,249,1); border-bottom: 1px solid var(--border-glass); color: var(--text-main);">
+                                <th style="padding: 14px 18px;">Operation / Step</th>
+                                <th style="padding: 14px 18px;">Potential Hazard</th>
+                                <th style="padding: 14px 18px;">Initial Risk</th>
+                                <th style="padding: 14px 18px;">Control Measure (Solution)</th>
+                                <th style="padding: 14px 18px;">Residual Risk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-glass);">
+                                <td style="padding: 12px 18px; font-weight: 600; color: var(--text-main);">1. Cut Wood with Saw</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Saw blade slip causing hand lacerations</td>
+                                <td style="padding: 12px 18px; color: var(--danger-red); font-weight: 700;">HIGH</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Clamp wood securely in vice; keep hands behind blade</td>
+                                <td style="padding: 12px 18px; color: var(--safe-green); font-weight: 700;">LOW</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-glass);">
+                                <td style="padding: 12px 18px; font-weight: 600; color: var(--text-main);">2. Frame Gluing & Drying</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Inhalation of toxic glue vapors</td>
+                                <td style="padding: 12px 18px; color: var(--warning-amber); font-weight: 700;">MEDIUM</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Work in ventilated area, nose mask, safe drying zone</td>
+                                <td style="padding: 12px 18px; color: var(--safe-green); font-weight: 700;">LOW</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-glass);">
+                                <td style="padding: 12px 18px; font-weight: 600; color: var(--text-main);">3. Glass Cutting & Offcuts</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Cuts during glass cutting & waste cleanup</td>
+                                <td style="padding: 12px 18px; color: var(--danger-red); font-weight: 700;">HIGH</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Wear protective gloves, use labelled glass waste barrels</td>
+                                <td style="padding: 12px 18px; color: var(--safe-green); font-weight: 700;">LOW</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 18px; font-weight: 600; color: var(--text-main);">4. Glass Edge Sanding</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Severe skin cuts during edge filing</td>
+                                <td style="padding: 12px 18px; color: var(--danger-red); font-weight: 700;">HIGH</td>
+                                <td style="padding: 12px 18px; color: var(--text-muted);">Clamp glass tight, wear cut-resistant gloves, file gently</td>
+                                <td style="padding: 12px 18px; color: var(--safe-green); font-weight: 700;">LOW</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: DESIGNER & CONSUMER SAFETY -->
+        <div class="slide-container" data-title="Designer & Consumer Safety">
+            <div class="slide-header">
+                <div class="slide-category">DESIGNER & CONSUMER SAFETY</div>
+                <h1 class="slide-title">The Designer's Responsibility & Safety Organizations</h1>
+            </div>
+            <div class="grid-2">
+                <div class="card card-indigo">
+                    <h2 class="card-title indigo">💡 Why Designers Must Think About Safety</h2>
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li><strong>Design out Hazards:</strong> Remove sharp corners, toxic finishes, and weak parts during the design stage — before the product is made.</li>
+                        <li><strong>Product Testing:</strong> Products are tested to make sure they meet the safety standards set by responsible organisations.</li>
+                        <li><strong>Safety Labels & Warnings:</strong> Products must be correctly labelled, with safety warnings put where necessary.</li>
+                        <li><strong>Keeping Customers Safe:</strong> The customer's safety is important — designers have a responsibility to make products safe to use.</li>
+                    </ul>
+                </div>
+                <div class="card card-safe">
+                    <h2 class="card-title safe">🏢 Global Health & Safety Organizations</h2>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+                        <div style="background: rgba(248,250,252,1); padding: 10px 14px; border-radius: 10px; font-size: 0.88rem;">
+                            <strong style="color: var(--safe-green);">HSE (Health and Safety Executive):</strong> UK regulator enforcing workplace health, safety, & COSHH compliance.
+                        </div>
+                        <div style="background: rgba(248,250,252,1); padding: 10px 14px; border-radius: 10px; font-size: 0.88rem;">
+                            <strong style="color: var(--mandatory-blue);">BSI (British Standards Institution):</strong> Sets national quality standards & awards the famous "Kitemark" symbol.
+                        </div>
+                        <div style="background: rgba(248,250,252,1); padding: 10px 14px; border-radius: 10px; font-size: 0.88rem;">
+                            <strong style="color: var(--warning-amber);">OSHA (Occupational Safety & Health Admin):</strong> USA federal agency ensuring safe workplace conditions.
+                        </div>
+                        <div style="background: rgba(248,250,252,1); padding: 10px 14px; border-radius: 10px; font-size: 0.88rem;">
+                            <strong style="color: var(--accent-indigo);">DATA (Design and Technology Association):</strong> Subject authority providing specialist D&T safety guidance for schools.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: INTERACTIVE ASSESSMENT QUIZ (WITH RADIO BUTTONS & LIVE SCORE COUNTING) -->
+        <div class="slide-container" data-title="End-of-Module Quiz">
+            <div class="slide-header">
+                <div class="slide-category">TEST YOUR KNOWLEDGE</div>
+                <h1 class="slide-title">End-of-Module Quiz</h1>
+            </div>
+            
+            <div class="quiz-score-banner" id="quizScoreBanner">
+                <div class="score-info">
+                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Live Performance Score</span>
+                    <span class="score-val" id="scoreVal">0 / 6 Questions Answered</span>
+                </div>
+                <button class="btn-submit-quiz" id="submitQuizBtn" onclick="gradeQuiz()">Check My Answers</button>
+                <button class="btn-submit-quiz" style="background: var(--bg-card); border: 1px solid var(--border-glass); margin-left: 10px;" onclick="resetQuiz()">Reset Quiz</button>
+            </div>
+
+            <div class="quiz-wrapper" id="quizWrapper" style="margin-top: 16px;">
+                <!-- QUESTION 1 -->
+                <div class="quiz-item">
+                    <div class="quiz-q-title"><span class="quiz-q-num">Q1.</span> What does COSHH stand for in workshop safety regulations?</div>
+                    <div class="quiz-options">
+                        <label class="quiz-option-label"><input type="radio" name="q1" value="A"> A) Control of Substances Hazardous to Health</label>
+                        <label class="quiz-option-label"><input type="radio" name="q1" value="B"> B) Care of Safety Hazards in Workshops</label>
+                        <label class="quiz-option-label"><input type="radio" name="q1" value="C"> C) Council of Safety and Health Helpers</label>
+                        <label class="quiz-option-label"><input type="radio" name="q1" value="D"> D) Caution of Solvents, Heat and Heavy Equipment</label>
+                    </div>
+                    <div class="quiz-feedback" id="fb-q1"></div>
+                </div>
+
+                <!-- QUESTION 2 -->
+                <div class="quiz-item">
+                    <div class="quiz-q-title"><span class="quiz-q-num">Q2.</span> Why must glass offcuts be disposed of in specially designated, labelled waste barrels?</div>
+                    <div class="quiz-options">
+                        <label class="quiz-option-label"><input type="radio" name="q2" value="A"> A) To melt the glass back into sawdust</label>
+                        <label class="quiz-option-label"><input type="radio" name="q2" value="B"> B) So everyone, including cleaning staff, knows it contains sharp glass offcuts</label>
+                        <label class="quiz-option-label"><input type="radio" name="q2" value="C"> C) To prevent chemical glue fumes from escaping</label>
+                        <label class="quiz-option-label"><input type="radio" name="q2" value="D"> D) Glass should always be left on the workbench</label>
+                    </div>
+                    <div class="quiz-feedback" id="fb-q2"></div>
+                </div>
+
+                <!-- QUESTION 3 -->
+                <div class="quiz-item">
+                    <div class="quiz-q-title"><span class="quiz-q-num">Q3.</span> When mounting a large sheet of glass into a picture frame, what is the required safety procedure?</div>
+                    <div class="quiz-options">
+                        <label class="quiz-option-label"><input type="radio" name="q3" value="A"> A) Lift it alone as fast as possible</label>
+                        <label class="quiz-option-label"><input type="radio" name="q3" value="B"> B) Ask a classmate to help lift and discuss beforehand who will do what</label>
+                        <label class="quiz-option-label"><input type="radio" name="q3" value="C"> C) Drag the glass across the bench surface</label>
+                        <label class="quiz-option-label"><input type="radio" name="q3" value="D"> D) Wear loose gloves while using a drill press</label>
+                    </div>
+                    <div class="quiz-feedback" id="fb-q3"></div>
+                </div>
+
+                <!-- QUESTION 4 -->
+                <div class="quiz-item">
+                    <div class="quiz-q-title"><span class="quiz-q-num">Q4.</span> Why MUST gloves NEVER be worn when operating a Pillar Drill (Drill Press)?</div>
+                    <div class="quiz-options">
+                        <label class="quiz-option-label"><input type="radio" name="q4" value="A"> A) Gloves reduce grip on the vice clamp</label>
+                        <label class="quiz-option-label"><input type="radio" name="q4" value="B"> B) Gloves can get caught in the spinning chuck/drill bit and drag hands into the machine</label>
+                        <label class="quiz-option-label"><input type="radio" name="q4" value="C"> C) Gloves block the motor's cooling airflow</label>
+                        <label class="quiz-option-label"><input type="radio" name="q4" value="D"> D) Gloves trap sawdust inside</label>
+                    </div>
+                    <div class="quiz-feedback" id="fb-q4"></div>
+                </div>
+
+                <!-- QUESTION 5 -->
+                <div class="quiz-item">
+                    <div class="quiz-q-title"><span class="quiz-q-num">Q5.</span> Which ISO 7010 safety sign category features a Blue Circle with a White Icon?</div>
+                    <div class="quiz-options">
+                        <label class="quiz-option-label"><input type="radio" name="q5" value="A"> A) Prohibition Sign (Must Not Do)</label>
+                        <label class="quiz-option-label"><input type="radio" name="q5" value="B"> B) Warning Sign (Danger / Caution)</label>
+                        <label class="quiz-option-label"><input type="radio" name="q5" value="C"> C) Mandatory Sign (Must Do Action)</label>
+                        <label class="quiz-option-label"><input type="radio" name="q5" value="D"> D) Safe Condition Sign (Emergency Exit)</label>
+                    </div>
+                    <div class="quiz-feedback" id="fb-q5"></div>
+                </div>
+
+                <!-- QUESTION 6 -->
+                <div class="quiz-item">
+                    <div class="quiz-q-title"><span class="quiz-q-num">Q6.</span> Which organization sets product quality standards and awards the famous "Kitemark" symbol?</div>
+                    <div class="quiz-options">
+                        <label class="quiz-option-label"><input type="radio" name="q6" value="A"> A) HSE (Health and Safety Executive)</label>
+                        <label class="quiz-option-label"><input type="radio" name="q6" value="B"> B) BSI (British Standards Institution)</label>
+                        <label class="quiz-option-label"><input type="radio" name="q6" value="C"> C) OSHA (Occupational Safety Administration)</label>
+                        <label class="quiz-option-label"><input type="radio" name="q6" value="D"> D) DATA (Design and Technology Association)</label>
+                    </div>
+                    <div class="quiz-feedback" id="fb-q6"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: MODULE SUMMARY & REVISION -->
+        <div class="slide-container" data-title="Summary & Next Steps">
+            <div class="slide-header">
+                <div class="slide-category">PLENARY SUMMARY</div>
+                <h1 class="slide-title">Module Summary & D&T Practical Readiness</h1>
+            </div>
+            <div class="grid-2">
+                <div class="card card-safe">
+                    <h2 class="card-title safe">✅ Essential Takeaways</h2>
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li><strong>Accidents are preventable:</strong> Rigorous discipline, rules, and PPE eliminate injuries.</li>
+                        <li><strong>COSHH Compliance:</strong> Always inspect hazardous substance labels and work with active extraction/RPE.</li>
+                        <li><strong>Sign Recognition:</strong> Distinguish Red Prohibition, Yellow Warning, Blue Mandatory, and Green Safe Condition instantly.</li>
+                        <li><strong>Practical Hazard Solutions:</strong> Secure workpieces with clamps, wear cut-resistant gloves for glass, use labelled disposal barrels, and communicate during group lifts.</li>
+                    </ul>
+                </div>
+                <div class="card card-indigo" style="justify-content: center; align-items: center; text-align: center;">
+                    <h2 class="card-title indigo" style="font-size: 1.5rem; margin-bottom: 12px;">Congratulations!</h2>
+                    <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+                        You have completed the Year 8 IGCSE Design & Technology Workshop Health & Safety Practice Module.
+                    </p>
+                    <button class="btn-submit-quiz" onclick="goToSlide(0)">Replay Presentation</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- BOTTOM CONTROL BAR -->
+    <footer>
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
+            Previous
+        </button>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            Next
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide-container');
+        const slideCounter = document.getElementById('slideCounter');
+        const progressBar = document.getElementById('progressBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const sidebarList = document.getElementById('sidebarList');
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+
+        let currentSlide = 0;
+
+        // Initialize Navigation & Sidebar
+        function initDeck() {
+            sidebarList.innerHTML = '';
+            slides.forEach((slide, idx) => {
+                const title = slide.getAttribute('data-title') || `Slide ${idx + 1}`;
+                const li = document.createElement('li');
+                li.className = `sidebar-item ${idx === 0 ? 'active' : ''}`;
+                li.innerHTML = `<span style="font-weight: 700; color: var(--accent-indigo); width: 24px;">${idx + 1}.</span> ${title}`;
+                li.onclick = () => {
+                    goToSlide(idx);
+                    sidebarMenu.classList.remove('open');
+                };
+                sidebarList.appendChild(li);
+            });
+            updateSlideUI();
+        }
+
+        function updateSlideUI() {
+            slides.forEach((s, i) => {
+                s.classList.toggle('active', i === currentSlide);
+            });
+
+            slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+            progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+
+            const sidebarItems = sidebarList.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach((item, i) => {
+                item.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+            updateSlideUI();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlideUI();
+        }
+
+        menuToggleBtn.onclick = () => {
+            sidebarMenu.classList.toggle('open');
+        };
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                if (currentSlide < slides.length - 1) changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) changeSlide(-1);
+            }
+        });
+
+        // Fullscreen Toggle
+        document.getElementById('fullscreenBtn').onclick = () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        };
+
+        // Radio Button Highlight listeners
+        document.querySelectorAll('.quiz-option-label').forEach(label => {
+            label.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) {
+                    const qName = radio.name;
+                    document.querySelectorAll(`input[name="${qName}"]`).forEach(r => {
+                        r.closest('.quiz-option-label').classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                }
+            });
+        });
+
+        // QUIZ EVALUATION LOGIC
+        const quizAnswers = {
+            q1: { correct: 'A', explain: 'Correct! COSHH stands for Control of Substances Hazardous to Health.' },
+            q2: { correct: 'B', explain: 'Correct! Labelling glass safety barrels ensures everyone, including cleaners, is aware of sharp glass hazards.' },
+            q3: { correct: 'B', explain: 'Correct! Teamwork safety requires asking a classmate to help lift large glass sheets and planning roles in advance.' },
+            q4: { correct: 'B', explain: 'Correct! Gloves can snag on high-speed rotating drill chucks and drag hands directly into the machinery.' },
+            q5: { correct: 'C', explain: 'Correct! Under ISO 7010, a Blue Circle with a White Symbol signifies a Mandatory Action.' },
+            q6: { correct: 'B', explain: 'Correct! The British Standards Institution (BSI) tests products and issues the Kitemark safety standard.' }
+        };
+
+        function gradeQuiz() {
+            let score = 0;
+            let total = Object.keys(quizAnswers).length;
+
+            for (let qKey in quizAnswers) {
+                const qData = quizAnswers[qKey];
+                const selectedRadio = document.querySelector(`input[name="${qKey}"]:checked`);
+                const fbDiv = document.getElementById(`fb-${qKey}`);
+
+                // Reset option styles
+                document.querySelectorAll(`input[name="${qKey}"]`).forEach(r => {
+                    const label = r.closest('.quiz-option-label');
+                    label.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedRadio) {
+                    const userVal = selectedRadio.value;
+                    const selectedLabel = selectedRadio.closest('.quiz-option-label');
+
+                    if (userVal === qData.correct) {
+                        score++;
+                        selectedLabel.classList.add('correct');
+                        fbDiv.className = 'quiz-feedback show-correct';
+                        fbDiv.textContent = `✅ ${qData.explain}`;
+                    } else {
+                        selectedLabel.classList.add('incorrect');
+                        fbDiv.className = 'quiz-feedback show-incorrect';
+                        fbDiv.textContent = `❌ Incorrect. ${qData.explain}`;
+                        
+                        // Highlight the correct answer
+                        const correctRadio = document.querySelector(`input[name="${qKey}"][value="${qData.correct}"]`);
+                        if (correctRadio) {
+                            correctRadio.closest('.quiz-option-label').classList.add('correct');
+                        }
+                    }
+                } else {
+                    fbDiv.className = 'quiz-feedback show-incorrect';
+                    fbDiv.textContent = `⚠️ Please select an answer! Correct answer: ${qData.explain}`;
+                    const correctRadio = document.querySelector(`input[name="${qKey}"][value="${qData.correct}"]`);
+                    if (correctRadio) {
+                        correctRadio.closest('.quiz-option-label').classList.add('correct');
+                    }
+                }
+            }
+
+            const scoreVal = document.getElementById('scoreVal');
+            const percent = Math.round((score / total) * 100);
+            scoreVal.textContent = `${score} / ${total} Correct (${percent}%) — ${percent >= 80 ? 'Mastery Achieved! 🏆' : 'Review Suggested 📖'}`;
+        }
+
+        function resetQuiz() {
+            for (let qKey in quizAnswers) {
+                document.querySelectorAll(`input[name="${qKey}"]`).forEach(r => {
+                    r.checked = false;
+                    const label = r.closest('.quiz-option-label');
+                    label.classList.remove('selected', 'correct', 'incorrect');
+                });
+                const fb = document.getElementById(`fb-${qKey}`);
+                fb.className = 'quiz-feedback';
+                fb.textContent = '';
+            }
+            document.getElementById('scoreVal').textContent = '0 / 6 Questions Answered';
+        }
+
+        initDeck();
+    </script>
+</body>
+</html>
